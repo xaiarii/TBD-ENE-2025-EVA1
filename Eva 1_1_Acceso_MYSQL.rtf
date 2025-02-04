@@ -1,0 +1,84 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\fs26 \cf0 Eva 1_1_Acceso_MYSQL\
+MySQL Shell 8.0.41\
+\
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.\
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.\
+Other names may be trademarks of their respective owners.\
+\
+Type '\\help' or '\\?' for help; '\\quit' to exit.\
+ MySQL  JS > \\sql\
+Switching to SQL mode... Commands end with ;\
+ MySQL  SQL > \\connect -mc root@localhost\
+WARNING: The -mc option was deprecated, please use --mc instead. (Option has been processed as --mc).\
+Creating a Classic session to 'root@localhost'\
+Please provide the password for 'root@localhost': **\
+Save password for 'root@localhost'? [Y]es/[N]o/Ne[v]er (default No): Y\
+Fetching global names for auto-completion... Press ^C to stop.\
+Your MySQL connection id is 22\
+Server version: 8.0.41 MySQL Community Server - GPL\
+No default schema selected; type \\use <schema> to set one.\
+ MySQL  localhost:3306 ssl  SQL > show databases;\
++--------------------+\
+| Database           |\
++--------------------+\
+| information_schema |\
+| mysql              |\
+| performance_schema |\
+| sakila             |\
+| sys                |\
+| world              |\
++--------------------+\
+6 rows in set (0.0120 sec)\
+ MySQL  localhost:3306 ssl  SQL > use sakila;\
+Default schema set to \uc0\u8288 \u8239 sakila\u8239 \u8288 .\
+Fetching global names, object names from \uc0\u8288 \u8239 sakila\u8239 \u8288  for auto-completion... Press ^C to stop.\
+ MySQL  localhost:3306 ssl  sakila  SQL > show tables;\
++----------------------------+\
+| Tables_in_sakila           |\
++----------------------------+\
+| actor                      |\
+| actor_info                 |\
+| address                    |\
+| category                   |\
+| city                       |\
+| country                    |\
+| customer                   |\
+| customer_list              |\
+| film                       |\
+| film_actor                 |\
+| film_category              |\
+| film_list                  |\
+| film_text                  |\
+| inventory                  |\
+| language                   |\
+| nicer_but_slower_film_list |\
+| payment                    |\
+| rental                     |\
+| sales_by_film_category     |\
+| sales_by_store             |\
+| staff                      |\
+| staff_list                 |\
+| store                      |\
++----------------------------+\
+23 rows in set (0.0142 sec)\
+ MySQL  localhost:3306 ssl  sakila  SQL > use world;\
+Default schema set to \uc0\u8288 \u8239 world\u8239 \u8288 .\
+Fetching global names, object names from \uc0\u8288 \u8239 world\u8239 \u8288  for auto-completion... Press ^C to stop.\
+ MySQL  localhost:3306 ssl  world  SQL > show tables;\
++-----------------+\
+| Tables_in_world |\
++-----------------+\
+| city            |\
+| country         |\
+| countrylanguage |\
++-----------------+\
+3 rows in set (0.0019 sec)\
+ MySQL  localhost:3306 ssl  world  SQL >}

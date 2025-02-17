@@ -1,0 +1,218 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red10\green77\blue76;\red221\green221\blue221;
+\red203\green74\blue5;\red223\green223\blue223;\red44\green44\blue44;\red89\green89\blue89;}
+{\*\expandedcolortbl;;\csgray\c0;\cspthree\c15308\c36657\c36949;\cspthree\c89412\c89412\c89412;
+\cspthree\c78529\c40049\c15121;\cspthree\c90000\c90000\c90000;\cspthree\c22745\c22745\c22745;\cspthree\c42353\c42353\c42353;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 Last login: Mon Feb 17 09:08:04 on ttys001\
+xaia@MacBook-Air-de-Angel ~ % mysqlsh\
+MySQL Shell 9.2.0\
+\
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.\
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.\
+Other names may be trademarks of their respective owners.\
+\
+Type '\\help' or '\\?' for help; '\\quit' to exit.\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb5  SQL \cf2 \cb2 > \cb1 \\connect --mc root@localhost\
+Creating a Classic session to 'root@localhost'\
+Fetching global names for auto-completion... Press ^C to stop.\
+Your MySQL connection id is 18\
+Server version: 9.1.0 MySQL Community Server - GPL\
+No default schema selected; type \\use <schema> to set one.\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb5  SQL \cf2 \cb2 > \cb1 use tbd_u1\
+Default schema set to `tbd_u1`.\
+Fetching global names, object names from `tbd_u1` for auto-completion... Press ^C to stop.\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 show tables;\
++------------------+\
+| Tables_in_tbd_u1 |\
++------------------+\
+| actor            |\
+| ciudad           |\
+| country          |\
+| producto         |\
+| prueba           |\
+| vehicle          |\
++------------------+\
+6 rows in set (0.0024 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc producto;\
++--------+-------------+------+-----+---------+----------------+\
+| Field  | Type        | Null | Key | Default | Extra          |\
++--------+-------------+------+-----+---------+----------------+\
+| id     | int         | NO   | PRI | NULL    | auto_increment |\
+| nombre | varchar(50) | NO   |     | NULL    |                |\
+| precio | float(10,2) | YES  |     | NULL    |                |\
++--------+-------------+------+-----+---------+----------------+\
+3 rows in set (0.0037 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto(nombre, precio)\
+\cb2                               -> \cb1                                          -> values("Tablet", 5000),("Celular", 1000),("Laptop, 10000.58);\
+\cb2                               "> \cb1                                          "> \
+\cb2                               -> \cb1                                          "> ");\
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> values("Tablet", 5000),("Celular", 1000),("Laptop, 10000.58);\
+               ' at line 2\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto(nombre, precio)\
+\cb2                               -> \cb1 values("Tablet", 5000),("Celular", 1000),("laptop",10000.58);\
+Query OK, 3 rows affected (0.0048 sec)\
+\
+Records: 3  Duplicates: 0  Warnings: 0\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from producto;\
++----+---------+---------+\
+| id | nombre  | precio  |\
++----+---------+---------+\
+|  1 | Tablet  |    5000 |\
+|  2 | Celular |    1000 |\
+|  3 | laptop  | 10000.6 |\
++----+---------+---------+\
+3 rows in set (0.0010 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto(precio)\
+\cb2                               -> \cb1 value(5000);\
+ERROR: 1364 (HY000): Field 'nombre' doesn't have a default value\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 elect * from producto;\
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'elect * from producto' at line 1\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from producto;\
++----+---------+---------+\
+| id | nombre  | precio  |\
++----+---------+---------+\
+|  1 | Tablet  |    5000 |\
+|  2 | Celular |    1000 |\
+|  3 | laptop  | 10000.6 |\
++----+---------+---------+\
+3 rows in set (0.0007 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto\
+\cb2                               -> \cb1 value(7,"Tacos",500);\
+Query OK, 1 row affected (0.0021 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from producto;\
++----+---------+---------+\
+| id | nombre  | precio  |\
++----+---------+---------+\
+|  1 | Tablet  |    5000 |\
+|  2 | Celular |    1000 |\
+|  3 | laptop  | 10000.6 |\
+|  7 | Tacos   |     500 |\
++----+---------+---------+\
+4 rows in set (0.0006 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto(nombre, precio) values("Tacotes", 500);\
+Query OK, 1 row affected (0.0014 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from producto;\
++----+---------+---------+\
+| id | nombre  | precio  |\
++----+---------+---------+\
+|  1 | Tablet  |    5000 |\
+|  2 | Celular |    1000 |\
+|  3 | laptop  | 10000.6 |\
+|  7 | Tacos   |     500 |\
+|  8 | Tacotes |     500 |\
++----+---------+---------+\
+5 rows in set (0.0006 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto value(7,"Tacos", 500);\
+ERROR: 1062 (23000): Duplicate entry '7' for key 'producto.PRIMARY'\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1  insert into producto(nombre, precio) values("Tacotes", 500);\
+Query OK, 1 row affected (0.0016 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto(nombre, precio) values("Tacotes", 500);\
+Query OK, 1 row affected (0.0016 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto(nombre, precio) values("Tacotes", 500);\
+Query OK, 1 row affected (0.0017 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into producto(nombre, precio) values("Tacotes", 500);\
+Query OK, 1 row affected (0.0016 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from producto;\
++----+---------+---------+\
+| id | nombre  | precio  |\
++----+---------+---------+\
+|  1 | Tablet  |    5000 |\
+|  2 | Celular |    1000 |\
+|  3 | laptop  | 10000.6 |\
+|  7 | Tacos   |     500 |\
+|  8 | Tacotes |     500 |\
+|  9 | Tacotes |     500 |\
+| 10 | Tacotes |     500 |\
+| 11 | Tacotes |     500 |\
+| 12 | Tacotes |     500 |\
++----+---------+---------+\
+9 rows in set (0.0007 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 create table cliente(\
+\cb2                               -> \cb1 id int key auto_increment,\
+\cb2                               -> \cb1 nombre varchar(50) not null,\
+\cb2                               -> \cb1 apellidos varchar(50),\
+\cb2                               -> \cb1 rfc varchar(13) not null unique);\
+Query OK, 0 rows affected (0.0104 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc cliente;\
++-----------+-------------+------+-----+---------+----------------+\
+| Field     | Type        | Null | Key | Default | Extra          |\
++-----------+-------------+------+-----+---------+----------------+\
+| id        | int         | NO   | PRI | NULL    | auto_increment |\
+| nombre    | varchar(50) | NO   |     | NULL    |                |\
+| apellidos | varchar(50) | YES  |     | NULL    |                |\
+| rfc       | varchar(13) | NO   | UNI | NULL    |                |\
++-----------+-------------+------+-----+---------+----------------+\
+4 rows in set (0.0025 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 SQL > insert into cliente(nombre, apellidos, rfc) value("Juan", "Perez","ASDF3545KUH");\
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SQL > insert into cliente(nombre, apellidos, rfc) value("Juan", "Perez","ASDF354' at line 1\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into cliente(nombre, apellidos, rfc) value("Juan", "Perez","ASDF3545KUH");\
+Query OK, 1 row affected (0.0039 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into cliente(nombre, apellidos, rfc) value("Juan", "Perez","ASDF3545KUH");\
+ERROR: 1062 (23000): Duplicate entry 'ASDF3545KUH' for key 'cliente.rfc'\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from cliente;\
++----+--------+-----------+-------------+\
+| id | nombre | apellidos | rfc         |\
++----+--------+-----------+-------------+\
+|  1 | Juan   | Perez     | ASDF3545KUH |\
++----+--------+-----------+-------------+\
+1 row in set (0.0005 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 create table shirts(\
+\cb2                               -> \cb1 id int key auto_increment,\
+\cb2                               -> \cb1 nombre varchar(50),\
+\cb2                               -> \cb1 tama enum("x-small","small","medium","large","x-large"));\
+Query OK, 0 rows affected (0.0090 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc shirts;\
++--------+----------------------------------------------------+------+-----+---------+----------------+\
+| Field  | Type                                               | Null | Key | Default | Extra          |\
++--------+----------------------------------------------------+------+-----+---------+----------------+\
+| id     | int                                                | NO   | PRI | NULL    | auto_increment |\
+| nombre | varchar(50)                                        | YES  |     | NULL    |                |\
+| tama   | enum('x-small','small','medium','large','x-large') | YES  |     | NULL    |                |\
++--------+----------------------------------------------------+------+-----+---------+----------------+\
+3 rows in set (0.0026 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into shirts(nombre, tama)\
+\cb2                               -> \cb1 value("Polo", "S");\
+ERROR: 1265 (01000): Data truncated for column 'tama' at row 1\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into shirts(nombre, tama) value("otra", "small") ;\
+Query OK, 1 row affected (0.0014 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into shirts(nombre, tama) value("otra2", "x-small") ;\
+Query OK, 1 row affected (0.0015 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into shirts(nombre, tama) value("otra3", "medium") ;\
+Query OK, 1 row affected (0.0016 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from shirts;\
++----+--------+---------+\
+| id | nombre | tama    |\
++----+--------+---------+\
+|  1 | otra   | small   |\
+|  2 | otra2  | x-small |\
+|  3 | otra3  | medium  |\
++----+--------+---------+\
+3 rows in set (0.0009 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 DROP table cliente;\
+Query OK, 0 rows affected (0.0064 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc cliente;\
+ERROR: 1146 (42S02): Table 'tbd_u1.cliente' doesn't exist\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 create table cliente( id int key auto_increment, nombre varchar(50) not null, apellidos varchar(50), rfc varchar(13) not null unique, tipo_persona enum("fisica, "moral"), genero enum("h","m"));\
+\cb2                               "> \cb1 \
+\cb2                               "> \cb1 ;\
+\cb2                               "> \cb1 ^C\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 create table cliente( id int key auto_increment, nombre varchar(50) not null, apellidos varchar(50), rfc varchar(13) not null unique, tipo_persona enum("fisica", "moral"), genero enum("h","m"));\
+Query OK, 0 rows affected (0.0077 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into cliente(nombre, apellidos, rfc, tipo_persona, genero)\
+\cb2                               -> \cb1 values("Angel", "Chavira", "AAAA000000AAA","fisica","h");\
+Query OK, 1 row affected (0.0038 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into cliente(nombre, apellidos, rfc, tipo_persona, genero) values("Daniela", "Acosta", "BBBB000000AAA","fisica","m");\
+Query OK, 1 row affected (0.0016 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from cliente;\
++----+---------+-----------+---------------+--------------+--------+\
+| id | nombre  | apellidos | rfc           | tipo_persona | genero |\
++----+---------+-----------+---------------+--------------+--------+\
+|  1 | Angel   | Chavira   | AAAA000000AAA | fisica       | h      |\
+|  2 | Daniela | Acosta    | BBBB000000AAA | fisica       | m      |\
++----+---------+-----------+---------------+--------------+--------+\
+2 rows in set (0.0007 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > }

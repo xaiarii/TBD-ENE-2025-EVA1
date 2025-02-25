@@ -1,0 +1,263 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red10\green77\blue76;\red221\green221\blue221;
+\red203\green74\blue5;\red223\green223\blue223;\red44\green44\blue44;\red89\green89\blue89;}
+{\*\expandedcolortbl;;\csgray\c0;\cspthree\c15308\c36657\c36949;\cspthree\c89412\c89412\c89412;
+\cspthree\c78529\c40049\c15121;\cspthree\c90000\c90000\c90000;\cspthree\c22745\c22745\c22745;\cspthree\c42353\c42353\c42353;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 Last login: Tue Feb 25 10:08:47 on console\
+xaia@MacBook-Air-de-Angel ~ % mysqlsh\
+MySQL Shell 9.2.0\
+\
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.\
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.\
+Other names may be trademarks of their respective owners.\
+\
+Type '\\help' or '\\?' for help; '\\quit' to exit.\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb5  SQL \cf2 \cb2 > \cb1 \\connect --mc root@localhost\
+Creating a Classic session to 'root@localhost'\
+Fetching global names for auto-completion... Press ^C to stop.\
+Your MySQL connection id is 8\
+Server version: 9.1.0 MySQL Community Server - GPL\
+No default schema selected; type \\use <schema> to set one.\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb5  SQL \cf2 \cb2 > \cb1 use tbd_u1\
+Default schema set to `tbd_u1`.\
+Fetching global names, object names from `tbd_u1` for auto-completion... Press ^C to stop.\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 show tables;\
++------------------+\
+| Tables_in_tbd_u1 |\
++------------------+\
+| actor            |\
+| ciudad           |\
+| cliente          |\
+| country          |\
+| fn1              |\
+| orders           |\
+| Product          |\
+| producto         |\
+| prueba           |\
+| shirts           |\
+| Students         |\
+| vehicle          |\
++------------------+\
+12 rows in set (0.0054 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc vehicle\
+\cb2                               -> \cb1 ;\
++-----------+-------------+------+-----+---------+-------+\
+| Field     | Type        | Null | Key | Default | Extra |\
++-----------+-------------+------+-----+---------+-------+\
+| marca     | varchar(20) | YES  |     | NULL    |       |\
+| modelo    | varchar(30) | YES  |     | NULL    |       |\
+| year      | smallint    | YES  |     | NULL    |       |\
+| color     | varchar(20) | YES  |     | NULL    |       |\
+| Serial_Nu | varchar(17) | YES  |     | NULL    |       |\
++-----------+-------------+------+-----+---------+-------+\
+5 rows in set (0.0086 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from vehicle\
+\cb2                               -> \cb1 ;\
++-------+------------+------+--------+-----------+\
+| marca | modelo     | year | color  | Serial_Nu |\
++-------+------------+------+--------+-----------+\
+| Seat  | Ibiza      | 2019 | Blanco | ejemplo   |\
+| Ford  | Lobo_f150  | NULL | NULL   | NULL      |\
+| Tesla | S          | NULL | NULL   | NULL      |\
+| Tesla | E          | NULL | NULL   | NULL      |\
+| Tesla | X          | NULL | NULL   | NULL      |\
+| Tesla | Y          | NULL | NULL   | NULL      |\
+| Tesla | Cybertruck | NULL | NULL   | NULL      |\
+| Tesla | S          | NULL | NULL   | NULL      |\
+| NULL  | NULL       | NULL | NULL   | NULL      |\
++-------+------------+------+--------+-----------+\
+9 rows in set (0.0097 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 alter table vehicle add ID int first;\
+Query OK, 0 rows affected (0.0265 sec)\
+\
+Records: 0  Duplicates: 0  Warnings: 0\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc vehicle;\
++-----------+-------------+------+-----+---------+-------+\
+| Field     | Type        | Null | Key | Default | Extra |\
++-----------+-------------+------+-----+---------+-------+\
+| ID        | int         | YES  |     | NULL    |       |\
+| marca     | varchar(20) | YES  |     | NULL    |       |\
+| modelo    | varchar(30) | YES  |     | NULL    |       |\
+| year      | smallint    | YES  |     | NULL    |       |\
+| color     | varchar(20) | YES  |     | NULL    |       |\
+| Serial_Nu | varchar(17) | YES  |     | NULL    |       |\
++-----------+-------------+------+-----+---------+-------+\
+6 rows in set (0.0027 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from vehicle;\
++------+-------+------------+------+--------+-----------+\
+| ID   | marca | modelo     | year | color  | Serial_Nu |\
++------+-------+------------+------+--------+-----------+\
+| NULL | Seat  | Ibiza      | 2019 | Blanco | ejemplo   |\
+| NULL | Ford  | Lobo_f150  | NULL | NULL   | NULL      |\
+| NULL | Tesla | S          | NULL | NULL   | NULL      |\
+| NULL | Tesla | E          | NULL | NULL   | NULL      |\
+| NULL | Tesla | X          | NULL | NULL   | NULL      |\
+| NULL | Tesla | Y          | NULL | NULL   | NULL      |\
+| NULL | Tesla | Cybertruck | NULL | NULL   | NULL      |\
+| NULL | Tesla | S          | NULL | NULL   | NULL      |\
+| NULL | NULL  | NULL       | NULL | NULL   | NULL      |\
++------+-------+------------+------+--------+-----------+\
+9 rows in set (0.0008 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 alter table vehicle drop ID;\
+Query OK, 0 rows affected (0.0120 sec)\
+\
+Records: 0  Duplicates: 0  Warnings: 0\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from vehicle;\
++-------+------------+------+--------+-----------+\
+| marca | modelo     | year | color  | Serial_Nu |\
++-------+------------+------+--------+-----------+\
+| Seat  | Ibiza      | 2019 | Blanco | ejemplo   |\
+| Ford  | Lobo_f150  | NULL | NULL   | NULL      |\
+| Tesla | S          | NULL | NULL   | NULL      |\
+| Tesla | E          | NULL | NULL   | NULL      |\
+| Tesla | X          | NULL | NULL   | NULL      |\
+| Tesla | Y          | NULL | NULL   | NULL      |\
+| Tesla | Cybertruck | NULL | NULL   | NULL      |\
+| Tesla | S          | NULL | NULL   | NULL      |\
+| NULL  | NULL       | NULL | NULL   | NULL      |\
++-------+------------+------+--------+-----------+\
+9 rows in set (0.0007 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 alter table vahicle add ID int key auto_increment first;\
+ERROR: 1146 (42S02): Table 'tbd_u1.vahicle' doesn't exist\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 alter table vehicle add ID int key auto_increment first;\
+Query OK, 0 rows affected (0.0266 sec)\
+\
+Records: 0  Duplicates: 0  Warnings: 0\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from vehicle;\
++----+-------+------------+------+--------+-----------+\
+| ID | marca | modelo     | year | color  | Serial_Nu |\
++----+-------+------------+------+--------+-----------+\
+|  1 | Seat  | Ibiza      | 2019 | Blanco | ejemplo   |\
+|  2 | Ford  | Lobo_f150  | NULL | NULL   | NULL      |\
+|  3 | Tesla | S          | NULL | NULL   | NULL      |\
+|  4 | Tesla | E          | NULL | NULL   | NULL      |\
+|  5 | Tesla | X          | NULL | NULL   | NULL      |\
+|  6 | Tesla | Y          | NULL | NULL   | NULL      |\
+|  7 | Tesla | Cybertruck | NULL | NULL   | NULL      |\
+|  8 | Tesla | S          | NULL | NULL   | NULL      |\
+|  9 | NULL  | NULL       | NULL | NULL   | NULL      |\
++----+-------+------------+------+--------+-----------+\
+9 rows in set (0.0007 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 alter table vehicle rename column ID to ID_Vehicle;\
+Query OK, 0 rows affected (0.0091 sec)\
+\
+Records: 0  Duplicates: 0  Warnings: 0\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from vehicle;\
++------------+-------+------------+------+--------+-----------+\
+| ID_Vehicle | marca | modelo     | year | color  | Serial_Nu |\
++------------+-------+------------+------+--------+-----------+\
+|          1 | Seat  | Ibiza      | 2019 | Blanco | ejemplo   |\
+|          2 | Ford  | Lobo_f150  | NULL | NULL   | NULL      |\
+|          3 | Tesla | S          | NULL | NULL   | NULL      |\
+|          4 | Tesla | E          | NULL | NULL   | NULL      |\
+|          5 | Tesla | X          | NULL | NULL   | NULL      |\
+|          6 | Tesla | Y          | NULL | NULL   | NULL      |\
+|          7 | Tesla | Cybertruck | NULL | NULL   | NULL      |\
+|          8 | Tesla | S          | NULL | NULL   | NULL      |\
+|          9 | NULL  | NULL       | NULL | NULL   | NULL      |\
++------------+-------+------------+------+--------+-----------+\
+9 rows in set (0.0007 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc vehicle;\
++------------+-------------+------+-----+---------+----------------+\
+| Field      | Type        | Null | Key | Default | Extra          |\
++------------+-------------+------+-----+---------+----------------+\
+| ID_Vehicle | int         | NO   | PRI | NULL    | auto_increment |\
+| marca      | varchar(20) | YES  |     | NULL    |                |\
+| modelo     | varchar(30) | YES  |     | NULL    |                |\
+| year       | smallint    | YES  |     | NULL    |                |\
+| color      | varchar(20) | YES  |     | NULL    |                |\
+| Serial_Nu  | varchar(17) | YES  |     | NULL    |                |\
++------------+-------------+------+-----+---------+----------------+\
+6 rows in set (0.0019 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 alter table vehicle NO_Puertas int not null;\
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NO_Puertas int not null' at line 1\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 alter table vehicle add  NO_Puertas int not null;\
+Query OK, 0 rows affected (0.0093 sec)\
+\
+Records: 0  Duplicates: 0  Warnings: 0\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc vehicle;\
++------------+-------------+------+-----+---------+----------------+\
+| Field      | Type        | Null | Key | Default | Extra          |\
++------------+-------------+------+-----+---------+----------------+\
+| ID_Vehicle | int         | NO   | PRI | NULL    | auto_increment |\
+| marca      | varchar(20) | YES  |     | NULL    |                |\
+| modelo     | varchar(30) | YES  |     | NULL    |                |\
+| year       | smallint    | YES  |     | NULL    |                |\
+| color      | varchar(20) | YES  |     | NULL    |                |\
+| Serial_Nu  | varchar(17) | YES  |     | NULL    |                |\
+| NO_Puertas | int         | NO   |     | NULL    |                |\
++------------+-------------+------+-----+---------+----------------+\
+7 rows in set (0.0024 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from vehicle;\
++------------+-------+------------+------+--------+-----------+------------+\
+| ID_Vehicle | marca | modelo     | year | color  | Serial_Nu | NO_Puertas |\
++------------+-------+------------+------+--------+-----------+------------+\
+|          1 | Seat  | Ibiza      | 2019 | Blanco | ejemplo   |          0 |\
+|          2 | Ford  | Lobo_f150  | NULL | NULL   | NULL      |          0 |\
+|          3 | Tesla | S          | NULL | NULL   | NULL      |          0 |\
+|          4 | Tesla | E          | NULL | NULL   | NULL      |          0 |\
+|          5 | Tesla | X          | NULL | NULL   | NULL      |          0 |\
+|          6 | Tesla | Y          | NULL | NULL   | NULL      |          0 |\
+|          7 | Tesla | Cybertruck | NULL | NULL   | NULL      |          0 |\
+|          8 | Tesla | S          | NULL | NULL   | NULL      |          0 |\
+|          9 | NULL  | NULL       | NULL | NULL   | NULL      |          0 |\
++------------+-------+------------+------+--------+-----------+------------+\
+9 rows in set (0.0007 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 alter table vehicle change NO_Puertas puertas varchar(50) not null;\
+Query OK, 9 rows affected (0.0183 sec)\
+\
+Records: 9  Duplicates: 0  Warnings: 0\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from vehicle:\
+\cb2                               -> \cb1 ;\
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':' at line 1\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 select * from vehicle;\
++------------+-------+------------+------+--------+-----------+---------+\
+| ID_Vehicle | marca | modelo     | year | color  | Serial_Nu | puertas |\
++------------+-------+------------+------+--------+-----------+---------+\
+|          1 | Seat  | Ibiza      | 2019 | Blanco | ejemplo   | 0       |\
+|          2 | Ford  | Lobo_f150  | NULL | NULL   | NULL      | 0       |\
+|          3 | Tesla | S          | NULL | NULL   | NULL      | 0       |\
+|          4 | Tesla | E          | NULL | NULL   | NULL      | 0       |\
+|          5 | Tesla | X          | NULL | NULL   | NULL      | 0       |\
+|          6 | Tesla | Y          | NULL | NULL   | NULL      | 0       |\
+|          7 | Tesla | Cybertruck | NULL | NULL   | NULL      | 0       |\
+|          8 | Tesla | S          | NULL | NULL   | NULL      | 0       |\
+|          9 | NULL  | NULL       | NULL | NULL   | NULL      | 0       |\
++------------+-------+------------+------+--------+-----------+---------+\
+9 rows in set (0.0007 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc vehicle;\
++------------+-------------+------+-----+---------+----------------+\
+| Field      | Type        | Null | Key | Default | Extra          |\
++------------+-------------+------+-----+---------+----------------+\
+| ID_Vehicle | int         | NO   | PRI | NULL    | auto_increment |\
+| marca      | varchar(20) | YES  |     | NULL    |                |\
+| modelo     | varchar(30) | YES  |     | NULL    |                |\
+| year       | smallint    | YES  |     | NULL    |                |\
+| color      | varchar(20) | YES  |     | NULL    |                |\
+| Serial_Nu  | varchar(17) | YES  |     | NULL    |                |\
+| puertas    | varchar(50) | NO   |     | NULL    |                |\
++------------+-------------+------+-----+---------+----------------+\
+7 rows in set (0.0027 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 desc no_puertas\
+\cb2                               -> \cb1 ;\
+ERROR: 1146 (42S02): Table 'tbd_u1.no_puertas' doesn't exist\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 create table datos(\
+\cb2                               -> \cb1 id int key auto_increment,\
+\cb2                               -> \cb1 valor int check(valor >= 1000));\
+Query OK, 0 rows affected (0.0133 sec)\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into datos(valor)\
+\cb2                               -> \cb1 values(1000),(2000),(3000);\
+Query OK, 3 rows affected (0.0080 sec)\
+\
+Records: 3  Duplicates: 0  Warnings: 0\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 inset into datos(valor)\
+\cb2                               -> \cb1 value(5);\
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inset into datos(valor)\
+value(5)' at line 1\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > \cb1 insert into datos(valor) value(5);\
+ERROR: 3819 (HY000): Check constraint 'datos_chk_1' is violated.\
+\cf3 \cb4  My\cf5 SQL \cf6 \cb7  localhost \cb8  tbd_u1 \cb5  SQL \cf2 \cb2 > }
